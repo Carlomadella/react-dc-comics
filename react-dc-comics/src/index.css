@@ -8,6 +8,18 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+figure,
+nav {
+  margin: 20px;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -21,4 +33,9 @@ img {
 a {
   color: black;
   text-decoration: none;
+}
+
+header ul li {
+  display: inline-block;
+  padding: 10px;
 }
