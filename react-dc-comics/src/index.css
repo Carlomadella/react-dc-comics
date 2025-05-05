@@ -6,6 +6,12 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  height: 50px;
 }
 
 /* HEADER */
@@ -22,9 +28,8 @@ nav {
   margin: 20px;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
+header figure img {
+  height: 70px;
 }
 
 .container {
@@ -48,15 +53,15 @@ main {
   color: white;
 }
 
-main .firstSection {
+main .top-footer {
   background-color: black;
 }
 
-main .firstSection h2 {
+main .top-footer h2 {
   padding: 40px 0px;
 }
 
-main .secondSection {
+main .bot-footer {
   background-color: #077ff9;
 }
 
@@ -64,6 +69,7 @@ main .secondSection {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  padding: 20px 0px;
 }
 
 .card {
@@ -75,7 +81,6 @@ main .secondSection {
 
 footer {
   background-color: black;
-  height: 500px;
 }
 
 footer ul li {
@@ -83,7 +88,8 @@ footer ul li {
 }
 
 footer ul li a {
-  color: grey;
+  font-size: small;
+  color: #6d6c6e;
 }
 
 footer h4 {
@@ -91,27 +97,40 @@ footer h4 {
   padding: 20px 0px;
 }
 
-footer .firstSection {
+footer .footerList {
   display: flex;
-  gap: 40px;
+  padding: 20px 0px;
+}
+
+footer .footerList li a {
+  margin: 10px 0px;
+}
+
+footer .footerList ul li,
+h4 {
+  margin-right: 50px;
 }
 
 /* FOOTER SECOND SECTION */
 
-footer .secondSection {
+footer .bot-footer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  background-color: grey;
-  margin: 20px 0px;
+  background-color: #323032;
+  padding: 20px 0px;
 }
-footer .secondSection ul {
+footer .bot-footer ul {
   display: flex;
   gap: 20px;
 }
 
-footer .secondSection button {
-  border: 4px solid blue;
+footer .bot-footer ul li {
+  list-style: none;
+}
+
+footer .bot-footer button {
+  border: 4px solid #077ff9;
   background-color: transparent;
   color: white;
   padding: 10px 20px;
@@ -124,6 +143,10 @@ footer .secondSection button {
   gap: 40px;
 }
 
+footer .social img {
+  height: 30px;
+}
+
 .social h4 {
-  color: blue;
+  color: #077ff9;
 }
