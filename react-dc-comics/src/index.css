@@ -8,6 +8,8 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+/* HEADER */
+
 header {
   display: flex;
   justify-content: space-between;
@@ -38,4 +40,34 @@ a {
 header ul li {
   display: inline-block;
   padding: 10px;
+}
+
+/* MAIN */
+
+main {
+  color: white;
+}
+
+.firstSection {
+  background-color: black;
+}
+
+.firstSection h2 {
+  padding: 40px 0px;
+}
+
+.secondSection {
+  background-color: #077ff9;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
