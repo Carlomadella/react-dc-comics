@@ -48,26 +48,82 @@ main {
   color: white;
 }
 
-.firstSection {
+main .firstSection {
   background-color: black;
 }
 
-.firstSection h2 {
+main .firstSection h2 {
   padding: 40px 0px;
 }
 
-.secondSection {
+main .secondSection {
   background-color: #077ff9;
 }
 
 .cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .card {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: black;
+  height: 500px;
+}
+
+footer ul li {
+  text-decoration: none;
+}
+
+footer ul li a {
+  color: grey;
+}
+
+footer h4 {
+  color: white;
+  padding: 20px 0px;
+}
+
+footer .firstSection {
+  display: flex;
+  gap: 40px;
+}
+
+/* FOOTER SECOND SECTION */
+
+footer .secondSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: grey;
+  margin: 20px 0px;
+}
+footer .secondSection ul {
+  display: flex;
+  gap: 20px;
+}
+
+footer .secondSection button {
+  border: 4px solid blue;
+  background-color: transparent;
+  color: white;
+  padding: 10px 20px;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.social h4 {
+  color: blue;
 }
