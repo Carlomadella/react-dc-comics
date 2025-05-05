@@ -1,0 +1,186 @@
+ROUTING
+
+E' il processo di selezione del percorso che una richiesta HTTP deve prendere.
+Anche express, come tutti i framework, ha un sistema di routing.
+
+Tramite express possiamo creare tutte le rotte di cui abbiamo bisogno.
+
+tramite l'oggetto app, per ogni rotta specifichiamo 3 elementi
+- metodo HTTP: get
+- path: URI della rotta
+- funzione da eseguire
+
+La request req e response res vengono fornite automaticamente come parametri alla funzione che gestisce la rotta.
+
+req: oggetto che rappresenta la richiesta e contiene proprieta' per accedere alle query string, parametri dinamici, dati ricevuti... etc...
+
+res: oggetto che rappresenta la risposta dell'app Express invia a seguito di una richiesta. 
+
+Nel caso del routing ci interessa la request.
+
+Possiamo determinare parametri dinamici
+Possiamo definire delle rotte con i parametri dinamici.
+Questo parametro identifica qualcosa che dobbiamo recuperare.
+Per definire un parametro dinamico, scegliamo una porzione di URI e ne assegnamo un nome, preceduto dal simbolo ':'
+
+app.get('/products/:id', (req, res) => {
+
+});
+
+per usare il parametro dinamico, usiamo req.params
+Piu' precisamente req.params.nome_parametro
+req.params.id
+
+similmente a query string, il parametro va a dire al server cosa l'utente vuole recuperare. Il server potra reindirizzare a seconda del valore contenuto nel parametro.
+
+Una volta che la rotta viene invocata, al posto del parametro dinamico, si va ad inserire il valore che si vuole passare
+https://localhost:3000/products/45  --> 45 valore passato che sostituisce il parametro
+https://localhost:3000/products/32  --> 32 valore passato che sostituisce il parametro
+
+Il parametro ci va a recuperare la risorsa.
+Su queste risorse dobbiamo poi fare vari tipi di operazioni.
+
+Operazioni C.R.U.D. (create read update delete)
+Servono per creare, leggere, aggiornare e cancellare risorse
+
+Ci serve uno standard per le operazioni CRUD
+REST (REpresentational State Transfer)
+Un architettura chiara, organizzata e condivisa
+
+REST introduce il concetto di risorse. Dentro ogni app, abbiamo alcune entita' centrali che giocano un ruolo fondamentale nel nostro progetto, che vengono definite risorse.
+
+Nell'architettura REST, le risorse sono delle informazioni a cui si puo' accedere tramite un id globale (URI).
+
+Per usare queste risorse, c'e' bisogno di un interfaccia standard (HTTP) e si scambiano rappresentazioni di queste risorse.
+
+Come funziona?
+
+1. nome da assegnare alle rotte per ciascuna operazione
+2. struttura degli url ben definita e UNIVOCA per ogni risorsa (piu precisamente la endpoint)
+3. Utilizzo dei metodi HTTP per definire l'utilizzo della risorsa
+
+combinando i verbi HTTP e gli endpoint, otteniamo le combinazioni univoche con le quali creeremo tutte le rotte necessarie alle risorse.
+
+Operazione sulla risorsa                Nome rotta      Verbo HTTP      Endpoint  
+Read: visualizza tutti gli elementi     index           GET             /products
+Read: visualizza un elemento            show            GET             /products/:id
+Create: crea un nuovo elemento          store           POST            /products
+Update: aggiorna un elemento            update          PUT             /products/:id
+Update: modifica parziale               modify          PATCH           /products/:id
+Delete: cancella un elemento            destroy         DELETE          /products/:id
+
+Queste rotte sono le piu' comuni, ma non sono le uniche.
+Possiamo definire rotte personalizzate, che non seguono questa convenzione. 
+
+Notiamo che se abbiamo endpoint uguali, abbiamo verbi HTTP diversi.
+Notiamo che il nome della risorsa nell'endpoint e' sempre al plurale.
+Perche' al plurale?
+Perche' in un endpoint ci aspettiamo di avere piu' risorse, non una sola.
+Perche' non al singolare?
+Perche' non e' una risorsa, ma un insieme di risorse.
+
+Notiamo inoltre che quando bisogna recuperare un singolo elemento, abbiamo sempre un parametro dinamico nell'endpoint
+
+Tutto questo prende il nome di API. Realizzazione di enpoint che permettono di effettuare operazioni sulle risorse
+
+//index
+app.get('/products', (req, res) => {
+    // recupera tutti i prodotti
+});
+
+//show
+app.get('/products/:id', (req, res) => {
+    // recupera un prodotto
+});
+
+//store
+app.post('/products', (req, res) => {
+    // crea un prodotto
+});
+
+//update
+app.put('/products/:id', (req, res) => {
+    // aggiorna un prodotto
+});
+
+//modify
+app.patch('/products/:id', (req, res) => {
+    // modifica parziale un prodotto
+});
+
+//destroy
+app.delete('/products/:id', (req, res) => {
+    // cancella un prodotto
+});
+
+C'e' una ripetizione degli URI.
+Possiamo definire delle rotte raggruppate, che condividono lo stesso URI.
+
+GROUPING
+Raggruppiamo le rotte uguali, per editare di riscriverle tutte
+
+E potremmo avere piu rotte diverse:
+/products
+/refurbished
+/returned
+/pizzas
+/drinks
+/snacks
+....
+
+Router
+Tramite la classe express.Router possiamo creare un file dedicato a un gruppo di rotte. In questo file andremo a definire tutte le rotte che condividono lo stesso URI, lasciando app.js piu' pulito e ordinato.
+Questo file dovra' essere importato in app.js e dovra' essere registrato come middleware. Da quel momento in poi tutte le rotte /pizzas saranno gestite da questo file.
+Il router e' un middleware, che si occupa di gestire le rotte.
+Il router e' un oggetto che contiene tutte le rotte definite in un file, e che viene registrato in app.js.
+
+Andiamo a creare una cartella routers, all'interno un file js che conterra' le rotte
+pizzas.js --> rotte relative ai pizzas
+drinks.js --> rotte relative ai drinks
+snacks.js --> rotte relative ai snacks
+
+const express = require('express');
+const router = express.Router();
+
+//invece di app usiamo router
+router.get('/', (req, res) => {
+    // recupera tutti i prodotti
+});
+router.get('/:id', (req, res) => {
+    // recupera un prodotto
+});
+router.post('/', (req, res) => {
+    // crea un prodotto
+});
+
+module.exports = router;
+
+
+app.js
+const express = require('express');
+const app = express();
+const pizzasRouter = require('./routers/pizzas');
+const drinksRouter = require('./routers/drinks');
+const snacksRouter = require('./routers/snacks');
+const PORT = 3000;
+
+app.use(express.static('public'));
+
+app.get('/', (req, res) => {
+    res.send('Hello World!');
+});
+
+app.use('/pizzas', pizzasRouter);
+app.use('/drinks', drinksRouter);
+app.use('/snacks', snacksRouter);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
+
+- Creo cartella routers
+- All'interno della cartella routers creo il/i file(s) js che mi servono per le rotte della singola risorsa
+- All'interno del singolo file, importo la classe router di express e vado a creare le rotte
+- Esporto il router
+- Importo il file creato in app.js
+- Inserisco l'istruzione per registrare il router come middleware: app.use('/pizzas', pizzasRouter);

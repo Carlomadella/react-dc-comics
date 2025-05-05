@@ -1,0 +1,17 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: red;
+    border: 1px solid black;
+}
+
+.card  {
+    background-color: black;
+    height: 250px;
+    width: 300px;
+    border: 1px solid white;
+}
+
+.space-between{
+    
+}
