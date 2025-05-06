@@ -1,3 +1,4 @@
+import comics from '../../comics.js';
 import ComicCard from './ComicCard.jsx';
 
 const ListComics = () => {
