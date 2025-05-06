@@ -11,7 +11,6 @@ body {
 
 img {
   max-width: 100%;
-  height: 50px;
 }
 
 /* HEADER */
@@ -53,13 +52,38 @@ main {
   color: white;
 }
 
+.jumbotron {
+  height: 200px;
+}
+
+.jumbotron img {
+  height: 100%;
+  overflow: hidden;
+}
+
 main .top-footer {
-  background-color: black;
+  background-color: #1c1c1c;
   position: relative;
 }
 
 main .top-footer img {
   width: 100%;
+}
+
+main .comics-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .com-thumbnail {
+  flex-basis: calc(100% / 6);
+  padding: 25px;
+  color: #fff;
+  padding-top: 50px;
+}
+
+main .com-thumbnail img {
+  height: 200px;
 }
 
 main button {
@@ -73,7 +97,7 @@ main button {
 
 .abs-button {
   position: absolute;
-  top: 45%;
+  top: 21%;
   left: 10%;
 }
 
@@ -98,6 +122,10 @@ main .bot-footer {
 .card {
   display: flex;
   align-items: center;
+}
+
+.card img {
+  height: 50px;
 }
 
 /* FOOTER */

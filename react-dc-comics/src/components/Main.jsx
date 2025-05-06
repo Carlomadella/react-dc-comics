@@ -1,3 +1,5 @@
+import ListComics from "./ListComics";
+
 const Main = () => {
   return (
     <main>
@@ -8,6 +10,8 @@ const Main = () => {
                     </div>
                 <div className="container">
                     <button className="abs-button">CURRENT SERIES</button>
+                    <ListComics />
+                    <div className="thumbnails"></div>
                     <div className="load-more">
                         <button>LOAD MORE</button>
                     </div>
