@@ -3,8 +3,14 @@ const Main = () => {
     <main>
             {/* prima sezione */}
             <div className="top-footer">
+                <div className="jumbotron">
+                        <img src="../src/assets/img/jumbotron.jpg" alt="jumbotron" />
+                    </div>
                 <div className="container">
-                    <h2>Content goes here</h2>
+                    <button className="abs-button">CURRENT SERIES</button>
+                    <div className="load-more">
+                        <button>LOAD MORE</button>
+                    </div>
                 </div>
             </div>
 

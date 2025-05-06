@@ -3,7 +3,6 @@ const Footer = () => {
         <footer>
             <div className="top-footer">
                 <div className="container">
-                    <img src="../src/assets/img/dc-logo-bg.png" alt="" />
                     <div className="footerList">
                         <div className="firstUl">
                             <ul>
