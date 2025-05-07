@@ -29,4 +29,137 @@ Trovate in allegato lo screenshot e il file contenente l'array.
 Copiate il contenuto di quest'ultimo nella componente ListComics.jsx
 Numero minimo di push: 8
 Buon Lavoro!
+
+
+07/05/2025
+
+Ciao ragazzi, Esercizio di oggi: DC Comics
+nome repo: react-dc-comics
+
+Descrizione: Continuate a lavorare nella stessa repo di ieri e ciclate l'array di fumetti all'interno della componente ListComics.jsx in modo tale da evitare le ripetizioni nel codice.
+Numero push minimo: Non c'è.
+Bonus: Copiate l'array presente in questo file nell'header e ciclate anche lui per mostrare gli elementi del menù
+
+const links = [
+
+    {
+
+      id: 1,
+
+      href: "#",
+
+      label: "Characters",
+
+      current: false,
+
+    },
+
+    {
+
+      id: 2,
+
+      href: "#",
+
+      label: "Comics",
+
+      current: true,
+
+    },
+
+    {
+
+      id: 3,
+
+      href: "#",
+
+      label: "Movies",
+
+      current: false,
+
+    },
+
+    {
+
+      id: 4,
+
+      href: "#",
+
+      label: "TV",
+
+      current: false,
+
+    },
+
+    {
+
+        id: 4,
+
+        href: "#",
+
+        label: "Games",
+
+        current: false,
+
+      },
+
+      {
+
+        id: 4,
+
+        href: "#",
+
+        label: "Collectibles",
+
+        current: false,
+
+      },
+
+      {
+
+        id: 4,
+
+        href: "#",
+
+        label: "Videos",
+
+        current: false,
+
+      },
+
+      {
+
+        id: 4,
+
+        href: "#",
+
+        label: "Fans",
+
+        current: false,
+
+      },
+
+      {
+
+        id: 4,
+
+        href: "#",
+
+        label: "News",
+
+        current: false,
+
+      },
+
+      {
+
+        id: 4,
+
+        href: "#",
+
+        label: "Shop",
+
+        current: false,
+
+      }
+    ]
 -->

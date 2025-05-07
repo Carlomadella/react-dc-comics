@@ -5,7 +5,11 @@ const ListComics = () => {
     return (
         <div id="fumetti">
             <div className="comics-container">
-                <ComicCard src={comics[0].thumb} title={comics[0].series}/>
+                {comics.map((comic) => (
+                    <ComicCard key = {comic.id} src= {comic.thumb} title= {comic.series}/>
+                ))}
+                {/* avendo ciclto l'array non serve più */}
+                {/* <ComicCard src={comics[0].thumb} title={comics[0].series}/>
                 <ComicCard src={comics[1].thumb} title={comics[1].series}/>
                 <ComicCard src={comics[2].thumb} title={comics[2].series}/>
                 <ComicCard src={comics[3].thumb} title={comics[3].series}/>
@@ -16,7 +20,7 @@ const ListComics = () => {
                 <ComicCard src={comics[8].thumb} title={comics[8].series}/>
                 <ComicCard src={comics[9].thumb} title={comics[9].series}/>
                 <ComicCard src={comics[10].thumb} title={comics[10].series}/>
-                <ComicCard src={comics[11].thumb} title={comics[11].series}/>
+                <ComicCard src={comics[11].thumb} title={comics[11].series}/> */}
             </div>
         </div>
     )
